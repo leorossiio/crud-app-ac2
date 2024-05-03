@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/app" (click)="setActiveLink('home')">
+    <a class="navbar-brand" routerLink="/app">
       <div>
         <img class="logo" src="./assets/imgs/logotipo.png" alt="logotipo" />
       </div>
@@ -12,19 +12,19 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/app']" (click)="setActiveLink('home')" [class.active]="activeLink === 'home'">Home</a>
+          <a class="nav-link" [routerLink]="['/app']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/app/users']" (click)="setActiveLink('users')" [class.active]="activeLink === 'users'">Users</a>
+          <a class="nav-link" [routerLink]="['/app/users']">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/app/todo-list']" (click)="setActiveLink('tarefas')" [class.active]="activeLink === 'tarefas'">Todo List</a>
+          <a class="nav-link" [routerLink]="['/app/todo-list']">Todo List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/app/addUser']" (click)="setActiveLink('addUser')" [class.active]="activeLink === 'addUser'">Add User</a>
+          <a class="nav-link" [routerLink]="['/app/addUser']">Add User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/app/editUser']" (click)="setActiveLink('editUser')" [class.active]="activeLink === 'editUser'">Edit User</a>
+          <a class="nav-link" [routerLink]="['/app/editUser']">Edit User</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

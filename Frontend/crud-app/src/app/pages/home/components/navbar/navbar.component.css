@@ -8,8 +8,7 @@
     color: white;
   }
   
-  .active {
-    font-weight: 600;
+  .nav-link:hover {
     text-decoration: underline rgb(0, 153, 255);
   }
   
