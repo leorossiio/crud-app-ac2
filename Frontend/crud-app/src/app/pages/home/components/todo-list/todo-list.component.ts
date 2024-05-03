@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
 interface Task {
-  done: boolean;
+  id: number;
   description: string;
+  status: string;
+  editing: boolean;
 }
 
 @Component({
@@ -11,18 +13,54 @@ interface Task {
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
+  tasks: Task[] = [
+    { id: 1, description: 'Tarefa 1', status: 'Não iniciado', editing: false },
+    { id: 2, description: 'Tarefa 2', status: 'Não iniciado', editing: false },
+    { id: 3, description: 'Tarefa 3', status: 'Não iniciado', editing: false },
+    { id: 4, description: 'Tarefa 4', status: 'Não iniciado', editing: false },
+    { id: 5, description: 'Tarefa 5', status: 'Não iniciado', editing: false }
+  ];
 
-  taskList: Task[] = []
-
-  constructor() {
-    this.taskList = [
-      {done: false, description: "Clean the house"},
-      {done: false, description: "Wash the car"},
-      {done: true, description: "Feed the dog"},
-    ]
+  botaoConcluir(task: Task): void {
+    if (task.status === 'Não iniciado') {
+      task.status = 'Em andamento';
+    } else if (task.status === 'Em andamento') {
+      task.status = 'Concluído';
+    } else if (task.status === 'Concluído') {
+      task.status = 'Não iniciado';
+    }
   }
 
-  changeTask(task: Task) {
-    task.done = !task.done
+  editarTarefa(task: Task): void {
+    task.editing = !task.editing;
+  }
+
+  salvarEdicao(task: Task): void {
+    task.editing = false;
+  }
+
+  deletarTarefa(task: Task): void {
+    const index = this.tasks.findIndex(t => t.id === task.id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  incluirTarefa(): void {
+    const novaTarefa: Task = {
+      id: this.getNextId(),
+      description: '',
+      status: 'Não iniciado',
+      editing: true
+    };
+    this.tasks.push(novaTarefa);
+  }
+
+  podeIncluirTarefa(): boolean {
+    return this.tasks.every(task => !task.editing);
+  }
+
+  private getNextId(): number {
+    return this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) + 1 : 1;
   }
 }
