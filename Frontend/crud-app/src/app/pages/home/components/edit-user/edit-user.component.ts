@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user',
@@ -15,8 +16,10 @@ export class EditUserComponent implements OnInit {
   };
 
   senhaInvalida: boolean = false;
+  
+  
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // Extrair os parâmetros da rota para obter o usuário selecionado
@@ -31,16 +34,18 @@ export class EditUserComponent implements OnInit {
   submitForm() {
     if (this.user.nome && this.user.email && this.user.funcao && this.user.senha && !this.senhaInvalida) {
       // Aqui você pode enviar os dados do usuário para o servidor ou fazer o que for necessário
-      console.log('Usuário atualizado:', this.user);
+      console.log('Usuário enviado:', this.user);
       // Limpa o formulário após o envio
-      this.user = {
-        nome: '', 
-        email: '',
-        funcao: '',
-        senha: ''
-      };
+      // this.user = {
+      //   nome: '',
+      //   email: '',
+      //   cargo: '',
+      //   senha: ''
+      // };
       // Alerta de usuário cadastrado corretamente
-      alert('Usuário atualizado!');
+      alert('Usuário atualizado corretamente!\n' + `\nNome: ${this.user.nome}\nEmail: ${this.user.email}\nFunção: ${this.user.funcao}\nSenha: ${this.user.senha}`);
+      
+      this.router.navigate(['/app/users']);
     } else {
       alert('Por favor, preencha todos os campos corretamente.');
     }
