@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 export class UsersComponent {
   constructor(private router: Router) { }
   user = [
-    { nome: 'Ana', email: 'ana@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Engenheiro de FE', editing: false },
-    { nome: 'Carlos', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Engenheiro de BE', editing: false },
-    { nome: 'Diego', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Analista de dados', editing: false },
-    { nome: 'Leonardo', email: 'carlos@example.com', senha: 'senha123', status: 'Ativo', funcao: 'Líder Técnico', editing: false },
-    { nome: 'Maria', email: 'carlos@example.com', senha: 'senha123', status: 'Inativo', funcao: 'Engenheiro de BE', editing: false }
+    { nome: 'Ana', email: 'ana@example.com', senha: 'senha123',  funcao: 'Engenheiro de FE' },
+    { nome: 'Carlos', email: 'carlos@example.com', senha: 'senha123',  funcao: 'Engenheiro de BE' },
+    { nome: 'Diego', email: 'carlos@example.com', senha: 'senha123',  funcao: 'Analista de dados' },
+    { nome: 'Leonardo', email: 'carlos@example.com', senha: 'senha123',  funcao: 'Líder Técnico' },
+    { nome: 'Maria', email: 'carlos@example.com', senha: 'senha123',  funcao: 'Engenheiro de BE' }
   ];
 
-  botaoAlterarStatus(user: any) {
-    user.status = user.status === 'Ativo' ? 'Inativo' : 'Ativo';
-  }
+  usuarioSelecionado: any;
 
-  editarUsuario(user: any) {
-    this.router.navigate(['/app/editUser', user]); // Supondo que o ID do usuário seja 'id'
+
+  editarUsuario(user: any): void{
+    this.usuarioSelecionado = user;
+    this.router.navigate(['/app/editUser', { user: JSON.stringify(user) }]); // Supondo que o ID do usuário seja 'id'
   }
 
   salvarEdicao(user: any) {
