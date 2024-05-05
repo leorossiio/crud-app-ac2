@@ -18,6 +18,10 @@ input{
   padding: 6px 0px 6px 5px
 }
 
+.btn-acao {
+  width: 100px;
+}
+
 .botao-verde:focus,
 .botao-verde:active {
   box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.5);
