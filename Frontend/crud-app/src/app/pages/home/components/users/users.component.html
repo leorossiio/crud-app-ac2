@@ -7,8 +7,8 @@
       <th>E-mail</th>
       <th>Função</th>
       <th>Senha</th>
-      <th>Editar</th>
-      <th>Excluir</th>
+      <th class="text-center">Editar</th>
+      <th class="text-center">Excluir</th>
     </tr>
   </thead>
   <tbody>
@@ -34,14 +34,14 @@
           <span>{{ user.senha }}</span>
         </div>
       </td>
-      <td>
-        <button class="btn btn-primary" (click)="editarUsuario(user)">
-          <i class="fas fa-pencil-alt"></i> Editar
+      <td class="text-center">
+        <button class="btn btn-warning btn-acao" (click)="editarUsuario(user)">
+          <i class="bi bi-pencil-fill text-white"></i>
         </button>
       </td>
-      <td>
-        <button class="btn btn-danger" (click)="deletarUsuario(user)">
-          <i class="fas fa-times"></i> Excluir
+      <td class="text-center">
+        <button class="btn btn-danger btn-acao" (click)="deletarUsuario(user)">
+          <i class="bi bi-trash"></i>
         </button>
       </td>
     </tr>
