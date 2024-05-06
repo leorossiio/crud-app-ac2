@@ -21,6 +21,7 @@ export class TodoListComponent {
     { id: 5, description: 'Tarefa 5', status: 'Não iniciado', editing: false }
   ];
 
+
   botaoConcluir(task: Task): void {
     if (task.status === 'Não iniciado') {
       task.status = 'Em andamento';

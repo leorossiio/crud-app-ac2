@@ -1,13 +1,47 @@
+.full-height {
+  min-height: 100%;
+  height: 80vh;
+}
+
 .botao-verde {
   background-color: green;
   color: white;
-  border-color: green
+  border-color: green;
+}
+
+.invisible-color {
+  background-color: #00000000;
+  border: none;
+  color: white;
+}
+
+.card {
+  margin-bottom: 0;
+  border: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.invisible-color{
+  color: black!important;
+}
+
+.card-title {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+input {
+  padding: 6px 0px 6px 5px;
+}
+
+.btn-acao {
+  width: 100px;
 }
 
 .botao-verde:focus,
 .botao-verde:active {
   box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.5);
-  /* Adiciona um efeito de sombra verde quando o botão está ativo ou focado */
 }
 
 .botao-laranja {
@@ -16,60 +50,34 @@
   border-color: rgb(255, 120, 48);
 }
 
-input{
-  padding: 6px 0px 6px 5px
-}
-
-
-.invisible-color {
-  background-color: #00000000;
-  border: none;
-  color: white;
-}
-
 .botao-laranja:focus,
 .botao-laranja:active {
   box-shadow: 0 0 0 0.2rem rgb(255, 120, 48);
-  /* Adiciona um efeito de sombra verde quando o botão está ativo ou focado */
 }
 
 .coluna-tabela {
   font-size: 20px;
 }
 
-
-.descricao-tarefa {
-  width: 220px;
-  display: flex;
-  /* Usa o flexbox para alinhar verticalmente */
-  align-items: center;
-  /* Centraliza verticalmente o conteúdo */
-  /* Centraliza horizontalmente o conteúdo */
-  margin-top: 10px;
-  /* Adiciona margem superior */
-  margin-bottom: 10px;
-  /* Adiciona margem inferior */
+.cls-limit-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
+.descricao-Usuario,
 .status {
   width: 220px;
   display: flex;
-  /* Usa o flexbox para alinhar verticalmente */
   align-items: center;
-  /* Centraliza verticalmente o conteúdo */
   margin-top: 10px;
-  /* Adiciona margem superior */
   margin-bottom: 10px;
-  /* Adiciona margem inferior */
 }
 
-.linha-tarefa {
+.linha-Usuario {
   height: 50px;
-  /* Defina a altura da linha como desejado */
   display: flex;
-  /* Usa o flexbox para alinhar verticalmente o conteúdo */
   align-items: center;
-  /* Centraliza verticalmente o conteúdo */
 }
 
 td,
@@ -78,14 +86,20 @@ th {
 }
 
 
-.btn-acao {
-  width: 100px;
+
+.card-body {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
-.limitador-table{
-overflow-x: auto;
+#deletarUsuario {
+  margin-left: 5px;
 }
 
-.cor-preta > input {
-  color: black;
+@media screen and (max-width: 991px) {
+  #deletarUsuario {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
 }
