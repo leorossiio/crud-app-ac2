@@ -8,18 +8,18 @@
             <div class="mb-md-5 mt-md-4 pb-3">
 
               <h2 class="fw-bold mb-2 text-uppercase text-center">Login</h2>
-              <p class="text-50 mb-5 text-center">Please enter your login and password!</p>
+              <p class="text-50 mb-5 text-center">Por favor insira seu login e senha!</p>
 
               <form [formGroup]="loginForm">
 
                 <div class="form-outline form-white mb-4">
 
                   <label class="form-label" for="typeEmailX">Email</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Enter E-mail" formControlName="email"/>
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Inserir E-mail" formControlName="email"/>
 
                   <!-- ERROR -->
                   <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-                    <div class="text-danger pt-2">Email is mandatory</div>
+                    <div class="text-danger pt-2">E-mail é obrigatório</div>
                   </div>
                   <!-- ERROR -->
                 </div>
@@ -28,15 +28,15 @@
 
                 <div class="form-outline form-white mb-4">
 
-                  <label class="form-label pt-3" for="typePasswordX">Password</label>
+                  <label class="form-label pt-3" for="typePasswordX">Senha</label>
                   <div class="input-group">
-                    <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required (keydown.enter)="login()" placeholder="Enter password" />
+                    <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required (keydown.enter)="login()" placeholder="Inserir Senha" />
                     <button type="button" class="btn btn-outline-primary" (click)="togglePasswordVisibility()"><i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i></button>
                   </div>
 
                   <!-- ERROR -->
                   <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-                    <div class="text-danger pt-2">Password is a required field</div>
+                    <div class="text-danger pt-2">Senha é um campo obrigatório</div>
                   </div>
                   <!-- ERROR -->
                 </div>
@@ -44,7 +44,7 @@
 
 
                 <div *ngIf="invalidUser">
-                  <div class="text-danger text-center">Invalid email/password</div>
+                  <div class="text-danger text-center">E-mail/senha inválidos</div>
                 </div>
 
                 <div class="d-flex justify-content-center pt-3">
@@ -61,7 +61,7 @@
             </div>
 
             <div class="d-flex justify-content-center">
-              <p class="mb-0">Don't have an account? <a class="text-50 fw-bold" routerLink="/signup">Sign Up</a></p>
+              <p class="mb-0">Não tem uma conta? <a class="text-50 fw-bold" routerLink="/signup">Cadastre-se</a></p>
             </div>
 
           </div>
