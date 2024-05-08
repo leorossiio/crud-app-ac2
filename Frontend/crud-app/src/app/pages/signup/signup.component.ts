@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 export class SignupComponent {
 
   signupForm: FormGroup;
-  constructor(private router: Router) {
+  showConfirmationMessage: boolean = false;
 
+  constructor(private router: Router) {
     this.signupForm = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -19,13 +20,15 @@ export class SignupComponent {
       passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)])
     });
   }
+
   onSubmit() {
     console.log("New user added with success!")
     console.log(this.signupForm.value);
 
-    this.router.navigate(["/"])
+    this.showConfirmationMessage = true;
+
+    setTimeout(() => {
+      this.router.navigate(["/"]); 
+    }, 3000);
   }
-
-
-
 }
