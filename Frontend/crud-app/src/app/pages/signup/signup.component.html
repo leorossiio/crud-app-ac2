@@ -1,4 +1,4 @@
-<section class="vh-100 bg-image"
+<section class="bg-image"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
@@ -6,16 +6,16 @@
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5">Crie a sua conta!</h2>
 
               <form [formGroup]="signupForm">
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">Nome Completo</label>
-                  <input type="text" formControlName="name" class="form-control form-control-lg">
+                  <input type="text" formControlName="name" placeholder="Insira o Nome Completo..." class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
-                    <div class="text-danger">Nome é obrigatório</div>
+                    <div class="text-danger pt-1">Nome é obrigatório</div>
                   </div>
                   <!-- ERROR -->
 
@@ -23,43 +23,47 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Email</label>
-                  <input type="text" formControlName="email" class="form-control form-control-lg">
+                  <input type="text" formControlName="email" placeholder="Ex:. exemplo@exemplo.com" class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
-                    <div class="text-danger">Por favor insira um e-mail válido</div>
+                    <div class="text-danger pt-1">Por favor insira um e-mail válido</div>
                   </div>
                   <!-- ERROR -->
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Senha</label>
-                  <input type="text" formControlName="password" class="form-control form-control-lg">
+                  <input type="text" formControlName="password" placeholder="******" class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('epasswordmail')?.dirty || signupForm.get('password')?.touched)">
-                    <div class="text-danger">Por favor insira uma senha entre 6 e 20 caracteres</div>
+                    <div class="text-danger pt-1">Por favor insira uma senha entre 6 e 20 caracteres</div>
                   </div>
                   <!-- ERROR -->
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cdg">Confirmação de senha</label>
-                  <input type="text" formControlName="passwordConfirmation" class="form-control form-control-lg">
+                  <input type="text" formControlName="passwordConfirmation" placeholder="******" class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('passwordConfirmation')?.invalid && (signupForm.get('passwordConfirmation')?.dirty || signupForm.get('passwordConfirmation')?.touched)">
-                    <div class="text-danger">Por favor insira uma senha entre 6 e 20 caracteres</div>
+                    <div class="text-danger pt-1">Por favor insira uma senha entre 6 e 20 caracteres</div>
                   </div>
                   <!-- ERROR -->
                 </div>
 
+                <div *ngIf="showConfirmationMessage" class="alert alert-success mt-3 text-center" role="alert">
+                  Cadastro realizado com sucesso!
+                </div>
+
                 <div class="d-flex justify-content-center">
-                  <button (click)="onSubmit()" [disabled]="!signupForm.valid" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button (click)="onSubmit()" [disabled]="!signupForm.valid" class="btn btn-primary btn-block btn-lg text-body">Registra-se</button>
                 </div>
 
               </form>
-              <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/" class="fw-bold text-body"><u>Login here</u></a></p>
+              <p class="text-center text-muted mt-5 mb-0">Já tem uma conta? <a routerLink="/" class="fw-bold text-body"><u>Faça Login</u></a></p>
 
             </div>
           </div>
