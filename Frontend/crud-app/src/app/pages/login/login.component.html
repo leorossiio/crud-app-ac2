@@ -15,11 +15,11 @@
                 <div class="form-outline form-white mb-4">
 
                   <label class="form-label" for="typeEmailX">Email</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" formControlName="email"/>
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Enter E-mail" formControlName="email"/>
 
                   <!-- ERROR -->
                   <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-                    <div class="text-danger pt-2">Email é obrigatório</div>
+                    <div class="text-danger pt-2">Email is mandatory</div>
                   </div>
                   <!-- ERROR -->
                 </div>
@@ -29,17 +29,22 @@
                 <div class="form-outline form-white mb-4">
 
                   <label class="form-label pt-3" for="typePasswordX">Password</label>
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg"  formControlName="password"/>
+                  <div class="input-group">
+                    <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required (keydown.enter)="login()" placeholder="Enter password" />
+                    <button type="button" class="btn btn-outline-primary" (click)="togglePasswordVisibility()"><i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i></button>
+                  </div>
 
                   <!-- ERROR -->
                   <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-                    <div class="text-danger pt-2">Senha é um campo obrigatório</div>
+                    <div class="text-danger pt-2">Password is a required field</div>
                   </div>
                   <!-- ERROR -->
                 </div>
 
+
+
                 <div *ngIf="invalidUser">
-                  <div class="text-danger text-center">E-mail / senha inválidos</div>
+                  <div class="text-danger text-center">Invalid email/password</div>
                 </div>
 
                 <div class="d-flex justify-content-center pt-3">
