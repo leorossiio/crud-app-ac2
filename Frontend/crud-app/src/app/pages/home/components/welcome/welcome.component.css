@@ -18,14 +18,12 @@
 
 .card-body {
   padding: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .table {
   margin-bottom: 0;
   background-color: #3f4040; /* Alteração da cor de fundo da tabela para cinza */
-}
-
-th {
-  font-weight: 600;
-  color: #3d3e3f;
 }
