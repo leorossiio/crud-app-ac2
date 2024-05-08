@@ -29,7 +29,7 @@ export class SignupComponent {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      console.log("New user added with success!")
+      console.log("Novo usuário cadastrado com sucesso!")
       console.log(this.signupForm.value);
 
       this.showConfirmationMessage = true;
