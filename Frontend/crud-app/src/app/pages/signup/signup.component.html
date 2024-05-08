@@ -33,8 +33,11 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg">Senha</label>
-                  <input type="text" formControlName="password" placeholder="******" class="form-control form-control-lg">
+                  <label class="form-label" for="typePasswordX">Senha</label>
+                  <div class="input-group">
+                    <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required placeholder="Inserir Senha" />
+                    <button type="button" class="btn btn-outline-dark" (click)="togglePasswordVisibility()"><i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i></button>
+                  </div>
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('epasswordmail')?.dirty || signupForm.get('password')?.touched)">
@@ -45,7 +48,7 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cdg">Confirmação de senha</label>
-                  <input type="text" formControlName="passwordConfirmation" placeholder="******" class="form-control form-control-lg">
+                  <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="passwordConfirmation" required placeholder="Confirmar Senha" />
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('passwordConfirmation')?.invalid && (signupForm.get('passwordConfirmation')?.dirty || signupForm.get('passwordConfirmation')?.touched)">
@@ -59,7 +62,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button (click)="onSubmit()" [disabled]="!signupForm.valid" class="btn btn-primary btn-block btn-lg text-body">Registra-se</button>
+                  <button (click)="onSubmit()" [disabled]="!signupForm.valid" class="btn btn-dark btn-block btn-lg text-body-white">Registra-se</button>
                 </div>
 
               </form>

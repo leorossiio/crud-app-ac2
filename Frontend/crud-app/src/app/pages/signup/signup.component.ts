@@ -21,6 +21,12 @@ export class SignupComponent {
     });
   }
 
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit() {
     console.log("New user added with success!")
     console.log(this.signupForm.value);
@@ -28,7 +34,7 @@ export class SignupComponent {
     this.showConfirmationMessage = true;
 
     setTimeout(() => {
-      this.router.navigate(["/"]); 
+      this.router.navigate(["/"]);
     }, 3000);
   }
 }
