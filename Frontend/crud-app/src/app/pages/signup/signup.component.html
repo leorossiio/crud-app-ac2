@@ -8,28 +8,21 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Crie a sua conta!</h2>
 
-              <form [formGroup]="signupForm">
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">Nome Completo</label>
                   <input type="text" formControlName="name" placeholder="Insira o Nome Completo..." class="form-control form-control-lg">
-
-                  <!-- ERROR -->
                   <div *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
                     <div class="text-danger pt-1">Nome é obrigatório</div>
                   </div>
-                  <!-- ERROR -->
-
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Email</label>
                   <input type="text" formControlName="email" placeholder="Ex:. exemplo@exemplo.com" class="form-control form-control-lg">
-
-                  <!-- ERROR -->
                   <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
                     <div class="text-danger pt-1">Por favor insira um e-mail válido</div>
                   </div>
-                  <!-- ERROR -->
                 </div>
 
                 <div class="form-outline mb-4">
@@ -38,23 +31,18 @@
                     <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="password" required placeholder="Inserir Senha" />
                     <button type="button" class="btn btn-outline-dark" (click)="togglePasswordVisibility()"><i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i></button>
                   </div>
-
-                  <!-- ERROR -->
-                  <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('epasswordmail')?.dirty || signupForm.get('password')?.touched)">
+                  <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">
                     <div class="text-danger pt-1">Por favor insira uma senha entre 6 e 20 caracteres</div>
                   </div>
-                  <!-- ERROR -->
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cdg">Confirmação de senha</label>
                   <input type="{{ showPassword ? 'text' : 'password' }}" id="typePasswordX" class="form-control form-control-lg" formControlName="passwordConfirmation" required placeholder="Confirmar Senha" />
-
-                  <!-- ERROR -->
-                  <div *ngIf="signupForm.get('passwordConfirmation')?.invalid && (signupForm.get('passwordConfirmation')?.dirty || signupForm.get('passwordConfirmation')?.touched)">
-                    <div class="text-danger pt-1">Por favor insira uma senha entre 6 e 20 caracteres</div>
+                  <!-- Adicionando mensagem de erro para senhas não coincidentes -->
+                  <div *ngIf="signupForm.hasError('passwordMismatch') && (signupForm.get('passwordConfirmation')?.dirty || signupForm.get('passwordConfirmation')?.touched)">
+                    <div class="text-danger pt-1">As senhas precisam ser iguais</div>
                   </div>
-                  <!-- ERROR -->
                 </div>
 
                 <div *ngIf="showConfirmationMessage" class="alert alert-success mt-3 text-center" role="alert">
@@ -62,7 +50,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button (click)="onSubmit()" [disabled]="!signupForm.valid" class="btn btn-dark btn-block btn-lg text-body-white">Registra-se</button>
+                  <button type="submit" [disabled]="!signupForm.valid" class="btn btn-dark btn-block btn-lg text-body-white">Registra-se</button>
                 </div>
 
               </form>
