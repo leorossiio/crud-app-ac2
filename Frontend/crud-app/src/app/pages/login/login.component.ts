@@ -35,3 +35,7 @@ export class LoginComponent {
 
   }
 }
+
+// Usuario para testes:
+// admin@gmail.com
+// admin
